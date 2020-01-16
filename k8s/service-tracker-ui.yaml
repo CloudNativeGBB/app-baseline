@@ -27,9 +27,12 @@ spec:
         app: service-tracker-ui
     spec:
       containers:
-        - image: docker.pkg.github.com/cloudnativegbb/arc-k8s-demos/service-tracker-ui-api:latest
+        - name: service-tracker-ui
+          image: docker.pkg.github.com/cloudnativegbb/arc-k8s-demos/service-tracker-ui-api:latest
           imagePullPolicy: Always
-          name: service-tracker-ui
+      imagePullSecrets:
+        - name: github
+        - name: service-tracker-ui
           resources:
             requests:
               memory: "512Mi"
@@ -37,8 +40,6 @@ spec:
             limits:
               memory: "1024Mi"
               cpu: "2.0"
-          imagePullSecrets:
-          - name: github
           env:
             - name: FLIGHT_API_ROOT
               value: http://flights-api.default.svc.cluster.local:3003/
