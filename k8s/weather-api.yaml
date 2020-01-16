@@ -28,7 +28,7 @@ spec:
         app: weather-api
     spec:
       containers:
-        - image: docker.pkg.github.com/cloudnativegbb/arc-k8s-demos/weather-api:latest
+        - image: msftgbb/weather-api:latest
           imagePullPolicy: Always
           name: weather-api
           resources:
@@ -38,8 +38,6 @@ spec:
             limits:
               memory: "1024Mi"
               cpu: "1000m"
-          imagePullSecrets:
-          - name: github
           env:
             - name: DATA_SERVICE_URI
               value: http://data-api.default.svc.cluster.local:3009/     
