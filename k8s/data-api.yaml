@@ -39,7 +39,7 @@ spec:
               memory: "1024Mi"
               cpu: "1000m"
           imagePullSecrets:
-          - name: GITHUB
+          - name: github
           env:
             - name: MONGODB_USER
               value: "dbuser"
