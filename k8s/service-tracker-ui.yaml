@@ -38,7 +38,7 @@ spec:
               memory: "1024Mi"
               cpu: "2.0"
           imagePullSecrets:
-          - name: GITHUB
+          - name: github
           env:
             - name: FLIGHT_API_ROOT
               value: http://flights-api.default.svc.cluster.local:3003/
