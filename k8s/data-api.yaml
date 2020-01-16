@@ -30,7 +30,7 @@ spec:
         app: data-api
     spec:
       containers:
-        - image: docker.pkg.github.com/cloudnativegbb/arc-k8s-demos/data-api:latest
+        - image: docker.pkg.github.com/cloudnativegbb/arc-k8s-demos/data-api:20200116224335e8e984
           imagePullPolicy: Always
           name: data-api
           resources:
