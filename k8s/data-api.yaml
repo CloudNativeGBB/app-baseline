@@ -30,7 +30,7 @@ spec:
         app: data-api
     spec:
       containers:
-        - image: msftgbb/data-api:2020011623483714f850
+        - image: msftgbb/data-api:latest
           imagePullPolicy: Always
           name: data-api
           resources:

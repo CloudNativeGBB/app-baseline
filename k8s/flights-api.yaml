@@ -42,7 +42,7 @@ spec:
               cpu: "1000m"
           env:
             - name: DATA_SERVICE_URI
-              value: http://data-api.default.svc.cluster.local:3009/
+              value: http://data-api.service-tracker.svc.cluster.local:3009/
           ports:
           - containerPort: 3003
             protocol: TCP
