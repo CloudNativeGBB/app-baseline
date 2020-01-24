@@ -49,8 +49,6 @@ spec:
               value: "mongodb.service-tracker.svc.cluster.local"
             - name: MONGODB_PORT
               value: "27017"
-            - name: MONGODB_ENABLE_IPV6
-              value: "no"
           ports:
           - containerPort: 3009
             protocol: TCP

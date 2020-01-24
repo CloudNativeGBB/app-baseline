@@ -52,7 +52,7 @@ spec:
         - name: MONGODB_DATABASE
           value: hackfest
         - name: MONGODB_ENABLE_IPV6
-          value: "yes"
+          value: "no"
         - name: MONGODB_ENABLE_DIRECTORY_PER_DB
           value: "no"
         name: mongodb          
