@@ -29,7 +29,7 @@ spec:
         app: service-tracker-ui
     spec:
       containers:
-        - image: msftgbb/service-tracker-ui:2020020619311529c7af
+        - image: msftgbb/service-tracker-ui:20200226152809d1d768
           imagePullPolicy: Always
           name: service-tracker-ui
           resources:
