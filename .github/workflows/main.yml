@@ -16,4 +16,4 @@ jobs:
           helmv3: 3.0.0
           command: |
             echo "Run kubeval"
-            kubeval ./manifests/*.yaml --strict
+            kubeval ./k8s/*.yaml --strict
