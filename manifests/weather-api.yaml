@@ -30,9 +30,9 @@ spec:
         app: weather-api
     spec:
       containers:
-        - image: msftgbb/weather-api:latest
+        - image: docker.pkg.github.com/cloudnativegbb/service-layer/service-layer-weather-api:latest
           imagePullPolicy: Always
-          name: weather-api
+          name: service-layer-weather-api
           resources:
             requests:
               memory: "128Mi"

@@ -30,9 +30,9 @@ spec:
         app: flights-api
     spec:
       containers:
-        - image: msftgbb/flights-api:latest
+        - image: docker.pkg.github.com/cloudnativegbb/service-layer/service-layer-flights-api:latest
           imagePullPolicy: Always
-          name: flights-api
+          name: service-layer-flights-api
           resources:
             requests:
               memory: "128Mi"

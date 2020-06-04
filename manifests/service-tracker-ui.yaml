@@ -29,9 +29,9 @@ spec:
         app: service-tracker-ui
     spec:
       containers:
-        - image: msftgbb/service-tracker-ui:20200226173009f369e0
+        - image: docker.pkg.github.com/cloudnativegbb/arcdemo-service-tracker-ui/service-tracker-web:latest
           imagePullPolicy: Always
-          name: service-tracker-ui
+          name: service-tracker-web 
           resources:
             requests:
               memory: "128Mi"
