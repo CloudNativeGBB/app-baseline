@@ -1,6 +1,14 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   test-action:
@@ -16,4 +24,4 @@ jobs:
           helmv3: 3.0.0
           command: |
             echo "Run kubeval"
-            kubeval ./k8s/*.yaml --strict
+            kubeval ./manifests/*.yaml --strict
