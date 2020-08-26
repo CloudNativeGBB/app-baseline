@@ -31,7 +31,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         # should this branch be different or push to same?
-        branch: versions/service-version-update
+        branch: refs/heads/versions/${{ github.event.client_payload.image_name }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
 #     - name: pull-request-action
 #       uses: vsoch/pull-request-action@1.0.6
