@@ -24,12 +24,12 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "auto-generated commit based on new service version" -a | exit 0
-    # TODO: push changes
-    #- name: Push changes
-      #if: github.ref == 'refs/heads/master'
-      #uses: ad-m/github-push-action@master
-      #with:
-        #github_token: ${{ secrets.GITHUB_TOKEN }
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        # should this branch be different or push to same?
+        branch: versions/service-version-update
+        github_token: ${{ secrets.GITHUB_TOKEN }
     - name: pull-request-action
       uses: vsoch/pull-request-action@1.0.6
       env:
