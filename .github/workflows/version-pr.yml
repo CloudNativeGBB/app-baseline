@@ -30,12 +30,12 @@ jobs:
         # should this branch be different or push to same?
         branch: versions/service-version-update
         github_token: ${{ secrets.GITHUB_TOKEN }
-    - name: pull-request-action
-      uses: vsoch/pull-request-action@1.0.6
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH_PREFIX: "versions/"
-        PULL_REQUEST_BRANCH: "master"
+#     - name: pull-request-action
+#       uses: vsoch/pull-request-action@1.0.6
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         BRANCH_PREFIX: "versions/"
+#         PULL_REQUEST_BRANCH: "master"
     # TODO: auto-merge PR?
     # TODO: delete branch?
         
