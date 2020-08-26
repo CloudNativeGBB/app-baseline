@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+      with:
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     - name: Verify data
       run: |
         echo ${{ github.event.client_payload.image_name }}
@@ -22,11 +24,10 @@ jobs:
     - name: Commit files
       run: |
         echo ${{ github.ref }}
-        git pull
-        git status
         git add .
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git config --local pull.rebase true
         git commit -m "auto-generated commit based on new service version" -a | exit 0
     - name: Push changes
       uses: ad-m/github-push-action@master
@@ -39,9 +40,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH_PREFIX: "versions/"
-        PULL_REQUEST_BRANCH: "master"
-    # TODO: auto-merge PR?
-    # TODO: delete branch?
+        PULL_REQUEST_BRANCH: "master"  
+#     - name: Merge Pull Request
+#       uses: juliangruber/merge-pull-request-action@v1
+#       with:
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
+#         number: 1
+#         method: squash    
         
   
 
