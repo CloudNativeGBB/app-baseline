@@ -18,7 +18,7 @@ jobs:
       with:
         # TODO: replace with regex?
         find: "msftgbb/${{ github.event.client_payload.image_name }}:*"
-        replace: "${{ github.event.client_payload.image_name }}:${{ github.event.client_payload.version }}"
+        replace: "msftgbb/${{ github.event.client_payload.image_name }}:${{ github.event.client_payload.version }}"
         include: "manifests/"
     - name: Commit files
       run: |
