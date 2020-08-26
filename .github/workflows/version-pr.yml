@@ -42,12 +42,11 @@ jobs:
         BRANCH_PREFIX: "versions/"
         PULL_REQUEST_BRANCH: "master"
         PULL_REQUEST_FROM_BRANCH: "versions/${{ github.event.client_payload.image_name }}"
-#     - name: Merge Pull Request
-#       uses: juliangruber/merge-pull-request-action@v1
-#       with:
-#         github-token: ${{ secrets.GITHUB_TOKEN }}
-#         number: 1
-#         method: squash    
-        
+    - name: Merge Pull Request
+      uses: juliangruber/merge-pull-request-action@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        number: ${{ env.PULL_REQUEST_NUMBER }}
+        method: rebase
   
 
