@@ -1,0 +1,31 @@
+
+name: New version update
+on:
+  repository_dispatch:
+    types: [version-event]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Commit files
+      run: |
+        echo ${{ github.ref }}
+        # TODO: find/replace on yml to replace version
+        git add .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "auto-generated commit based on new service version" -a | exit 0
+    # TODO: push changes
+    #- name: Push changes
+      #if: github.ref == 'refs/heads/master'
+      #uses: ad-m/github-push-action@master
+      #with:
+        #github_token: ${{ secrets.GITHUB_TOKEN }
+    # TODO: open PR when changes are pushed to a certain branch pre-fix versions/test-test
+    # TODO: auto-merge PR?
+    # TODO: delete branch?
+        
+  
+
