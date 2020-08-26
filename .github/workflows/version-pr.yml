@@ -43,9 +43,8 @@ jobs:
         PULL_REQUEST_BRANCH: "master"
         PULL_REQUEST_FROM_BRANCH: "versions/${{ github.event.client_payload.image_name }}"
     - name: Merge Pull Request
-      uses: juliangruber/merge-pull-request-action@v1
+      uses: sudo-bot/action-pull-request-merge@v1.1.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         number: ${{ env.PULL_REQUEST_NUMBER }}
-  
-
+        merge-method: squash
