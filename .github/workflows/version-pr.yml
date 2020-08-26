@@ -32,7 +32,7 @@ jobs:
       with:
         # should this branch be different or push to same?
         branch: versions/service-version-update
-        github_token: ${{ secrets.GITHUB_TOKEN }
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 #     - name: pull-request-action
 #       uses: vsoch/pull-request-action@1.0.6
 #       env:
