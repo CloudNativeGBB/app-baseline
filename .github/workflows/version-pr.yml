@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: Verify data
+      run: |
+        echo ${{ github.event.client_payload.image_name }}
+        echo ${{ github.event.client_payload.version }}
     - name: Replace with new version
       uses: jacobtomlinson/gha-find-replace@master
       with:
@@ -19,7 +23,6 @@ jobs:
     - name: Commit files
       run: |
         echo ${{ github.ref }}
-        # TODO: find/replace on yml to replace version
         git add .
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
