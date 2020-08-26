@@ -1,0 +1,46 @@
+
+name: New version update
+on:
+  repository_dispatch:
+    types: [version-event]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Verify data
+      run: |
+        echo ${{ github.event.client_payload.image_name }}
+        echo ${{ github.event.client_payload.version }}
+    - name: Replace with new version
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        # TODO: replace with regex?
+        find: "msftgbb/${{ github.event.client_payload.image_name }}:*"
+        replace: "msftgbb/${{ github.event.client_payload.image_name }}:${{ github.event.client_payload.version }}"
+        include: "manifests/"
+    - name: Commit files
+      run: |
+        echo ${{ github.ref }}
+        git add .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "auto-generated commit based on new service version" -a | exit 0
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        # should this branch be different or push to same?
+        branch: versions/service-version-update
+        github_token: ${{ secrets.GITHUB_TOKEN }
+#     - name: pull-request-action
+#       uses: vsoch/pull-request-action@1.0.6
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         BRANCH_PREFIX: "versions/"
+#         PULL_REQUEST_BRANCH: "master"
+    # TODO: auto-merge PR?
+    # TODO: delete branch?
+        
+  
+
