@@ -30,7 +30,7 @@ spec:
         app: flights-api
     spec:
       containers:
-        - image: msftgbb/flights-api:v1.0.7
+        - image: msftgbb/flights-api:v1.0.8
           imagePullPolicy: Always
           name: flights-api
           resources:
