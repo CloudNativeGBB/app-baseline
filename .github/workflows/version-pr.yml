@@ -18,7 +18,7 @@ jobs:
     - name: Replace with new version
       uses: jacobtomlinson/gha-find-replace@master
       with:
-        find: "(msftgbb\/${{ github.event.client_payload.image_name }}:).*"
+        find: "(msftgbb/${{ github.event.client_payload.image_name }}:).*"
         replace: "msftgbb/${{ github.event.client_payload.image_name }}:${{ github.event.client_payload.version }}"
         include: "manifests/"
     - name: Commit files
