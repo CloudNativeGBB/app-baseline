@@ -30,7 +30,7 @@ spec:
         app: quakes-api
     spec:
       containers:
-        - image: msftgbb/quakes-api:latest
+        - image: msftgbb/quakes-api:
           imagePullPolicy: Always
           name: quakes-api
           resources:
