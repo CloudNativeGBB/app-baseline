@@ -23,7 +23,12 @@ jobs:
       #uses: ad-m/github-push-action@master
       #with:
         #github_token: ${{ secrets.GITHUB_TOKEN }
-    # TODO: open PR when changes are pushed to a certain branch pre-fix versions/test-test
+    - name: pull-request-action
+      uses: vsoch/pull-request-action@1.0.6
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH_PREFIX: "versions/"
+        PULL_REQUEST_BRANCH: "master"
     # TODO: auto-merge PR?
     # TODO: delete branch?
         
