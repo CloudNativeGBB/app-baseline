@@ -30,7 +30,7 @@ spec:
         app: weather-api
     spec:
       containers:
-        - image: msftgbb/weather-api:latest
+        - image: msftgbb/weather-api:
           imagePullPolicy: Always
           name: weather-api
           resources:
